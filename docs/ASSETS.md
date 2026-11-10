@@ -20,3 +20,9 @@ The expanded story sequence also uses three local 1800 x 1400 JPEG photographs (
 | public/images/stories/dining-room.jpg | https://images.unsplash.com/photo-1740759546487-47ea8e32d81e ([Unsplash photo by Zoshua Colah](https://unsplash.com/photos/a-dining-room-with-a-wooden-table-and-chairs-7XvWyar6DPw)) |
 | public/images/stories/quiet-living.jpg | https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a |
 | public/images/stories/soft-light.jpg | https://images.unsplash.com/photo-1600210491892-03d54c0aaf87 |
+
+## Studio background video
+
+`public/videos/studio-aesthetic-h264.mp4` is the web copy of the user-supplied `aesthetic video.MP4`. It uses H.264 Constrained Baseline, 8-bit 4:2:0 colour, and progressive MP4 loading; its unused audio track is removed. The source upload uses HEVC/H.265 and remains unchanged outside the project. The H.264 filename also avoids reusing cached copies of the earlier video.
+
+The studio player uses muted inline autoplay, retries when media becomes ready or the visitor touches the page, and pauses outside the section or when reduced motion is requested. The still poster is derived from the supplied film.
