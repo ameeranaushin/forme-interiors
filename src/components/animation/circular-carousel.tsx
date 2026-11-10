@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Component, useEffect, useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import type { CarouselItem } from "./circular-carousel-scene";
+import { ArrowIcon } from "../arrow-icon";
 
 const Scene = dynamic(() => import("./circular-carousel-scene"), { ssr: false, loading: () => <p className="scene-loading">Loading gallery…</p> });
 
@@ -37,9 +38,9 @@ export function CircularCarousel({ items, label = "Project gallery" }: { items: 
       <SceneBoundary fallback={fallback}>{ready && !reducedMotion ? <Scene items={items} index={index} reducedMotion={reducedMotion} /> : fallback}</SceneBoundary>
     </div>
     <div className="carousel-controls">
-      <button onClick={() => setIndex((value) => value - 1)} aria-label="Previous project">←</button>
+      <button onClick={() => setIndex((value) => value - 1)} aria-label="Previous project"><ArrowIcon direction="left" /></button>
       <p aria-live="polite" aria-atomic="true">{items[active].title} <span>{active + 1} / {items.length}</span></p>
-      <button onClick={() => setIndex((value) => value + 1)} aria-label="Next project">→</button>
+      <button onClick={() => setIndex((value) => value + 1)} aria-label="Next project"><ArrowIcon /></button>
     </div>
   </div>;
 }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { StudioVideo } from "./studio-video";
+import { ArrowIcon } from "./arrow-icon";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useHomepageMotion } from "@/hooks/use-homepage-motion";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -108,14 +109,14 @@ export function FormeHomepage() {
           <a className="wordmark" href="#top" aria-label="FORME home">forme</a>
           <button className="menu-toggle" data-hero-button aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "Close −" : "Menu +"}</button>
           <nav id="main-navigation" className={menuOpen ? "navigation is-open" : "navigation"} aria-label="Main navigation" onClick={() => setMenuOpen(false)}>
-            <a href="#work" data-hero-button>Selected work</a><a href="#studio" data-hero-button>The studio</a><a href="#objects" data-hero-button>Objects</a><a href="#contact" data-hero-button>Start a project ↗</a>
+            <a href="#work" data-hero-button>Selected work</a><a href="#studio" data-hero-button>The studio</a><a href="#objects" data-hero-button>Objects</a><a href="#contact" data-hero-button>Start a project</a>
           </nav>
         </header>
         <div className="hero-intro inset">
           <div className="hero-title-frame" data-hero-title-frame><h1 id="hero-title" data-apple-heading data-node-id="3:13">Space to feel.</h1></div>
         </div>
         <div className="hero-meta inset eyebrow">
-            <a href="#studio" data-hero-button>Scroll to explore ↓</a>
+            <a href="#studio" data-hero-button>Scroll to explore<ArrowIcon direction="down" className="inline-arrow" /></a>
             <button className="motion-toggle" data-hero-button onClick={() => setMotionDisabled(!motionDisabled)} aria-label="Reduce motion" aria-pressed={motionDisabled || reducedMotion} disabled={reducedMotion}>
               {reducedMotion ? "Motion reduced" : motionDisabled ? "Enable motion" : "Reduce motion"}
             </button>
@@ -147,7 +148,7 @@ export function FormeHomepage() {
         <div className="studio-details inset">
           <div className="studio-content">
             <p className="studio-description" data-copy-reveal>{studioText}</p>
-            <button className="text-link" onClick={() => setDetail({ title: "The studio", text: studioText, image: assets.living })}>Meet the studio ↗</button>
+            <button className="text-link" onClick={() => setDetail({ title: "The studio", text: studioText, image: assets.living })}>Meet the studio</button>
           </div>
           <p className="studio-italic" data-copy-reveal>Less, but with feeling.</p>
           <div className="studio-detail" data-node-id="3:27"><div className="scale-image-motion" data-scale-reveal><Photo src={assets.living} alt="Natural materials in a thoughtfully composed living room" sizes="(max-width: 700px) 90vw, 44vw" /></div></div>
@@ -169,7 +170,7 @@ export function FormeHomepage() {
               <span className="panel-number eyebrow">0{index + 1}</span><span className="panel-note">{panel.note}</span>
               <span className="panel-title" data-word-reveal>{panel.title}</span>
             </button>
-            <button className="panel-detail" onClick={() => setDetail(panel)} aria-label={`Read about ${panel.title.toLowerCase()}`}><span aria-hidden="true">↗</span></button>
+            <button className="panel-detail" onClick={() => setDetail(panel)} aria-label={`Read about ${panel.title.toLowerCase()}`}><ArrowIcon /></button>
           </article>)}
         </div>
       </section>
@@ -182,7 +183,7 @@ export function FormeHomepage() {
             <span className="project-title" data-copy-reveal>{project.title}</span><span className="eyebrow project-meta" data-copy-reveal>{project.meta}</span>
           </button>)}
         </div>
-        <button className="text-link all-projects" onClick={() => setDetail({ title: "Selected spaces", text: "Places, with personality. Explore the illustrative projects in the FORME collection.", meta: "PROJECT ARCHIVE" })}>Explore all projects ↗</button>
+        <button className="text-link all-projects" onClick={() => setDetail({ title: "Selected spaces", text: "Places, with personality. Explore the illustrative projects in the FORME collection.", meta: "PROJECT ARCHIVE" })}>Explore all projects</button>
       </section>
 
       <section className="stories section" id="stories" aria-labelledby="stories-title" data-node-id="3:65">
@@ -198,7 +199,7 @@ export function FormeHomepage() {
             } as CSSProperties}><Photo src={card.src} alt={card.title} sizes="(max-width: 700px) 90vw, 65vw" /></div>)}
             <span className="story-progress eyebrow" aria-hidden="true">{String(activeStory + 1).padStart(2, "0")} / {String(stories.length).padStart(2, "0")}</span>
           </div>
-          <div className="stories-bottom eyebrow"><p aria-live="polite" aria-atomic="true">{stories[activeStory].caption}</p><button onClick={() => setDetail({ title: stories[activeStory].title, image: stories[activeStory].src, meta: "FORME / Interior stories", text: "A perspective from the FORME design concept. Light, materials and the moments that make a space feel like home." })}>Explore the stories ↗</button></div>
+          <div className="stories-bottom eyebrow"><p aria-live="polite" aria-atomic="true">{stories[activeStory].caption}</p><button onClick={() => setDetail({ title: stories[activeStory].title, image: stories[activeStory].src, meta: "FORME / Interior stories", text: "A perspective from the FORME design concept. Light, materials and the moments that make a space feel like home." })}>Explore the stories</button></div>
         </div>
       </section>
 
@@ -209,17 +210,17 @@ export function FormeHomepage() {
             ["Interior architecture", "Spaces shaped around how you live."],
             ["Furniture & objects", "Bespoke pieces with a point of view."],
             ["Styling & curation", "The finishing layers that make it yours."],
-          ].map(([title, description], index) => <a href="#contact" className="practice-row" key={title}><span className="eyebrow" data-text-rise>0{index + 1}</span><div><h3 data-word-reveal>{title}</h3><p data-text-rise>{description}</p></div><span className="practice-arrow" aria-hidden="true">↗</span></a>)}
+          ].map(([title, description], index) => <a href="#contact" className="practice-row" key={title}><span className="eyebrow" data-text-rise>0{index + 1}</span><div><h3 data-word-reveal>{title}</h3><p data-text-rise>{description}</p></div><ArrowIcon className="practice-arrow" /></a>)}
         </div>
       </section>
 
       <section className="contact inset section" id="contact" aria-labelledby="contact-title" data-node-id="3:93">
         <div className="rule" /><p className="eyebrow" data-word-reveal>Have a space in mind?</p>
-        <div className="contact-main"><h2 id="contact-title" data-scroll-heading>Let’s make<br />room for it.</h2><a className="text-link" href="mailto:hello@forme.studio?subject=Let%E2%80%99s%20make%20room">Tell us about your project ↗</a></div>
+        <div className="contact-main"><h2 id="contact-title" data-scroll-heading>Let’s make<br />room for it.</h2><a className="text-link" href="mailto:hello@forme.studio?subject=Let%E2%80%99s%20make%20room">Tell us about your project</a></div>
         <div className="contact-bottom"><a href="mailto:hello@forme.studio" className="contact-email" data-word-reveal>hello@forme.studio</a><p className="eyebrow" data-text-rise>Based in Kolkata<br />Working everywhere</p></div>
       </section>
       <footer className="site-footer section" data-node-id="3:100">
-        <div className="inset"><div className="footer-main"><a href="#top" className="footer-wordmark" aria-label="FORME — Back to top"><span className="footer-letter-mask" aria-hidden="true">{"forme".split("").map((letter, index) => <span className="footer-letter" data-footer-letter key={index}>{letter}</span>)}</span></a><nav aria-label="Social and contact links"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.pinterest.com/" target="_blank" rel="noreferrer">Pinterest ↗</a><a href="#contact">Contact ↗</a></nav></div>
+        <div className="inset"><div className="footer-main"><a href="#top" className="footer-wordmark" aria-label="FORME — Back to top"><span className="footer-letter-mask" aria-hidden="true">{"forme".split("").map((letter, index) => <span className="footer-letter" data-footer-letter key={index}>{letter}</span>)}</span></a><nav aria-label="Social and contact links"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.pinterest.com/" target="_blank" rel="noreferrer">Pinterest</a><a href="#contact">Contact</a></nav></div>
           <div className="footer-bottom eyebrow" data-copy-reveal><p>© FORME STUDIO 2026</p><p>An imaginary studio / design concept</p></div></div>
       </footer>
     </main>
@@ -227,8 +228,8 @@ export function FormeHomepage() {
       {detail && <article className="detail-content"><button className="dialog-close" onClick={() => setDetail(null)} aria-label="Close details">Close ×</button><p className="eyebrow">{detail.meta ?? "FORME / A closer look"}</p><h2 id="detail-title">{detail.title}</h2>
         {detail.image && <div className="detail-photo"><Photo src={detail.image} alt={detail.title} sizes="(max-width: 700px) 90vw, 700px" /></div>}
         <p>{detail.text}</p>
-        {detail.title === "Selected spaces" && <div className="archive-links">{projects.map((project) => <button key={project.title} onClick={() => showProject(project)}>{project.title} ↗</button>)}</div>}
-        <a className="text-link" href="#contact" onClick={() => setDetail(null)}>Start a conversation ↗</a>
+        {detail.title === "Selected spaces" && <div className="archive-links">{projects.map((project) => <button key={project.title} onClick={() => showProject(project)}>{project.title}</button>)}</div>}
+        <a className="text-link" href="#contact" onClick={() => setDetail(null)}>Start a conversation</a>
       </article>}
     </dialog>
   </>;

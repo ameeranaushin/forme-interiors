@@ -15,6 +15,8 @@ img { object-fit: cover; }
 .section { scroll-margin-top: 24px; }
 .eyebrow, .text-link { font-size: 12px; line-height: 1.05; text-transform: uppercase; }
 .text-link { display: inline-block; text-align: left; }
+.arrow-icon { display: inline-block; flex-shrink: 0; color: #000; vertical-align: middle; }
+.inline-arrow { width: 12px; height: 12px; margin-inline-start: 4px; vertical-align: -2px; }
 .text-link:hover, .navigation a:hover, .footer-main nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .rule { height: 1px; background: var(--line); width: 100%; }
 .skip-link { position: fixed; z-index: 100; top: 12px; left: 12px; padding: 16px 24px; background: var(--ink); color: var(--paper); transform: translateY(-160%); }
@@ -90,8 +92,8 @@ img { object-fit: cover; }
 .practice-row > .eyebrow { padding-top: 3px; }
 .practice-row h3 { font-size: 28px; line-height: 1.05; }
 .practice-row p { margin-top: 20px; font-size: 16px; line-height: 1.05; }
-.practice-arrow { font-size: 24px; line-height: 1.05; }
-.practice-row:hover .practice-arrow { transform: translate(3px,-3px); }
+.practice-arrow { width: 24px; height: 24px; justify-self: end; }
+.practice-row:hover .practice-arrow { transform: translateX(3px); }
 .contact { min-height: 600px; }
 .contact > .eyebrow { margin-top: 57px; }
 .contact-main { display: grid; grid-template-columns: 1fr 352px; align-items: end; gap: 36px; margin-top: 52px; }
@@ -151,7 +153,7 @@ img { object-fit: cover; }
 .carousel-fallback { position: relative; height: 100%; max-width: 500px; margin-inline: auto; }
 .scene-loading { text-align: center; padding-top: 100px; }
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 32px; margin-top: 16px; }
-.carousel-controls button { width: 48px; height: 48px; border: 1px solid var(--line); }
+.carousel-controls button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line); }
 .carousel-controls p { min-width: 220px; text-align: center; }
 .carousel-controls p span { display: block; font-size: 11px; margin-top: 8px; }
 .handoff { min-height: 60svh; display: flex; flex-direction: column; justify-content: center; }
@@ -235,8 +237,8 @@ img { object-fit: cover; }
 .panel-shade { background: linear-gradient(180deg,rgba(0,0,0,.66) 0%,rgba(0,0,0,.50) 25%,rgba(0,0,0,.04) 54%,rgba(0,0,0,.68) 100%); }
 .panel-title { font-size: clamp(18px,1.7vw,26px); bottom: 76px; left: 23px; right: 18px; white-space: normal; text-shadow: 0 1px 14px rgb(0 0 0 / .3); }
 .panel-note { max-width: calc(100% - 44px); }
-.panel-detail { position: absolute; z-index: 2; bottom: 16px; right: 14px; width: 44px; height: 44px; font-size: 26px; display: grid; place-items: center; border: 1px solid rgb(255 255 255 / .45); background: rgb(0 0 0 / .12); transition: background .3s; }
-.panel-detail:hover { background: rgb(0 0 0 / .4); }
+.panel-detail { position: absolute; z-index: 2; bottom: 16px; right: 14px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #000; background: var(--paper); color: #000; transition: background .3s; }
+.panel-detail:hover { background: #e8e6e0; }
 .story-stage { isolation: isolate; }
 .story-card { position: absolute; left: 0; top: 18.662%; width: 100%; height: 63.3803%; z-index: var(--deck-order); opacity: var(--deck-opacity); transform: translateY(var(--deck-offset)) scale(var(--deck-scale)); transform-origin: 50% 50%; overflow: hidden; box-shadow: 0 12px 36px rgb(0 0 0 / .14); }
 .story-progress { position: absolute; left: 50%; bottom: 4px; transform: translateX(-50%); color: var(--paper); z-index: 120; font-size: 10px; letter-spacing: .08em; }
