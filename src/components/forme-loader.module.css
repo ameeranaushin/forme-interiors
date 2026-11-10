@@ -1,0 +1,38 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.curtain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #050505;
+}
+
+.mark {
+  display: block;
+  width: clamp(180px, 30vw, 460px);
+  max-width: calc(100vw - 48px);
+  height: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
